@@ -1,0 +1,26 @@
+version: 0.100000
+metadata:
+  name: azorian-solutions-cluster-example
+options:
+  clusterDomain: k8s.azorian.solutions
+  controlPlaneEndpoint: cp.k8s.azorian.solutions
+  ipam:
+    podNetworksCIDR: 10.255.0.0/16
+    serviceNetworksCIDR: 10.10.10.0/23
+    loadBalancerNetworksCIDR: 10.10.0.0/23
+  softwareVersions:
+    kubelet: 1.22.0-00
+    kubeadm: 1.22.0-00
+    kubectl: 1.22.0-00
+  ssh:
+    username: USERNAME-HERE
+    password: PASSWORD-HERE
+  nodes:
+    controlPlane:
+    - 172.22.100.1
+    - 172.22.100.2
+    - 172.22.100.3
+    workers:
+    - 172.22.100.11
+    - 172.22.100.12
+    - 172.22.100.13

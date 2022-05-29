@@ -1,0 +1,20 @@
+version: 0.1
+metadata:
+  name: kdusa-cluster-template
+options:
+  clusterDomain: 'CHANGE.ME.COM'
+  controlPlaneEndpoint: 'cp.CHANGE.ME.COM'
+  ipam:
+    podNetworksCIDR: 10.255.0.0/16
+    serviceNetworksCIDR: 10.254.10.0/23
+    loadBalancerNetworksCIDR: 10.254.0.0/23
+  softwareVersions:
+    kubelet: 1.22.0-00
+      kubeadm: 1.22.0-00
+      kubectl: 1.22.0-00
+  ssh:
+    username: 'CHANGE ME'
+    password: 'CHANGE ME'
+  nodes:
+    controlPlane:
+    workers:

@@ -1,0 +1,25 @@
+#!/usr/bin/env php
+<?php
+
+$rootPath = dirname(dirname(__FILE__));
+
+require_once $rootPath . '/inc/autoload.php';
+
+$step = null;
+
+if(is_array($argv) && count($argv) > 1)
+	$step = $argv[1];
+
+$manager = new \Spidermatt\K8s\Manager($rootPath);
+$manager->startConfiguration();
+
+if($step == 'install') {
+	$manager->startProcess('dependencyInstall');
+} elseif($step == 'init') {
+	$manager->startProcess('initCluster');
+} elseif($step == 'install-init') {
+	$manager->startProcess('dependencyInstall');
+	$manager->startProcess('initCluster');
+} elseif ($step == 'uninstall') {
+	$manager->startProcess('uninstall');
+}
